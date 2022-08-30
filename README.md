@@ -1,16 +1,32 @@
-# movie_app
+## Movies App
 
-A new Flutter project.
+### User Stories
 
-## Getting Started
+#### REQUIRED
 
-This project is a starting point for a Flutter application.
+- [ ] Expose details of movie (ratings using RatingBar, popularity, and synopsis) in a separate activity.
+- [ ] Allow video posts to be played in full-screen using the YouTubePlayerView.
 
-A few resources to get you started if this is your first Flutter project:
+#### BONUS
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [ ] Implement a shared element transition when user clicks into the details of a movie.
+- [ ] Trailers for popular movies are played automatically when the movie is selected.
+  - [ ] When clicking on a popular movie (i.e. a movie voted for more than 5 stars) the video should be played immediately.
+  - [ ] Less popular videos rely on the detailed page should show an image preview that can initiate playing a YouTube video.
+- [ ] Add a play icon overlay to popular movies to indicate that the movie can be played.
+- [ ] Apply data binding for views to help remove boilerplate code.
+- [ ] Add a rounded corners for the images using the Glide transformations.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### App Walkthough GIF
+
+`TODO://` Add the URL to your animated app walkthough `gif` in the image tag below, `YOUR_GIF_URL_HERE`. Make sure the gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after after adding gif)
+
+<img src="YOUR_GIF_URL_HERE" width=250><br>
+
+### Notes
+
+TBH
+
+## Open-source libraries used
+- [Android Async HTTP](https://github.com/codepath/CPAsyncHttpClient) - Simple asynchronous HTTP requests with JSON parsing
+- [Glide](https://github.com/bumptech/glide) - Image loading and caching library for Android
