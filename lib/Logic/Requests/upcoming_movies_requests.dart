@@ -19,6 +19,7 @@ class UpcomingMoviesRequest {
     var dio = Dio();
     MoviesList returnList;
 
+  try{
     final response = await dio.get(mainPath +
         upcomingMoviesPath +
         apiKeyHeader +
@@ -30,6 +31,10 @@ class UpcomingMoviesRequest {
 
     
   return returnList;
+  }
+  catch(_){
+    throw Exception("Erro fetching posts");
+  }
         
   }
 }

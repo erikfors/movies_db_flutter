@@ -1,4 +1,6 @@
-class Movie {
+import 'package:equatable/equatable.dart';
+
+class Movie extends Equatable {
   late int id;
   late String original_language;
   late String original_title;
@@ -72,9 +74,24 @@ class Movie {
 
   @override
   String toString() {
-
     var returnString = "id: $id Title: $title Popularity: $popularity";
 
     return returnString;
   }
+
+  @override
+  List<Object> get props => [
+        id,
+        original_language,
+        original_title,
+        overview,
+        popularity,
+        poster_path,
+        release_date,
+        title,
+        vote_average,
+        vote_count,
+        backdrop_path,
+        genre_ids,
+      ];
 }

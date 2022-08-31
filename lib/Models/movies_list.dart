@@ -2,11 +2,13 @@ import 'package:movie_app/Models/movie.dart';
 
 class MoviesList {
   List<Movie> _moviesList = [];
+  int _page = 0;
 
-  MoviesList(this._moviesList);
+  MoviesList(this._moviesList, this._page);
 
   MoviesList.empty() {
     _moviesList = List<Movie>.empty(growable: true);
+    _page = 0;
   }
 
   void addMovie(Movie movie){
@@ -15,6 +17,11 @@ class MoviesList {
 
   int size(){
     return _moviesList.length;
+  }
+
+  int getPage(){
+    _page++;
+    return _page;
   }
 
   Movie get(int index){
@@ -26,11 +33,11 @@ class MoviesList {
 
     var moviesListResult = MoviesList.empty();
 
-    results.forEach((element) {
+    for (var element in results) {
       Map<String, dynamic> currentElement = element;
       var movie = Movie.fromMap(currentElement);
       moviesListResult.addMovie(movie);
-    });
+    }
 
     return moviesListResult;
   }
