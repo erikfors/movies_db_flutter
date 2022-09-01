@@ -17,24 +17,18 @@ class UpcomingMoviesRequest {
 
   static Future<MoviesList> callRequestUpcomingMovies(int page) async {
     var dio = Dio();
-    MoviesList returnList;
 
-  try{
-    final response = await dio.get(mainPath +
-        upcomingMoviesPath +
-        apiKeyHeader +
-        apiKey +
-        backHeader +
-        page.toString());
+    try {
+      final response = await dio.get(mainPath +
+          upcomingMoviesPath +
+          apiKeyHeader +
+          apiKey +
+          backHeader +
+          page.toString());
 
-        returnList = MoviesList.jsonToMovieList(response.data);
-
-    
-  return returnList;
-  }
-  catch(_){
-    throw Exception("Erro fetching posts");
-  }
-        
+      return MoviesList.main(MoviesList.jsonToMovieList(response.data));
+    } catch (e) {
+      rethrow;
+    }
   }
 }
