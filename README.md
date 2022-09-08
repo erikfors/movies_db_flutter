@@ -15,8 +15,8 @@
   - [ ] When clicking on a popular movie (i.e. a movie voted for more than 5 stars) the video should be played immediately.
   - [ ] Less popular videos rely on the detailed page should show an image preview that can initiate playing a YouTube video.
 - [ ] Add a play icon overlay to popular movies to indicate that the movie can be played.
-- [ ] Use Bloc.
-- [ ] Add a rounded corners for the images.
+- [x] Use Bloc.
+- [x] Add a rounded corners for the images.
 - [ ] Views should be responsive for both landscape/portrait mode.
    - [ ] In portrait mode, the poster image, title, and movie overview is shown.
    - [ ] (In landscape mode, the rotated alternate layout should use the backdrop image instead and show the title and movie overview to the right of it.
