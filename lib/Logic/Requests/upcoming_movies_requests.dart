@@ -25,7 +25,7 @@ class UpcomingMoviesRequest {
           apiKey +
           backHeader +
           page.toString());
-
+          
       return MoviesList.main(MoviesList.jsonToMovieList(response.data));
     } catch (e) {
       rethrow;

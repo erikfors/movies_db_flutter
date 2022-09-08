@@ -15,7 +15,7 @@ class Movie extends Equatable {
   late List<int> genre_ids;
 
   Movie(
-      {required this.backdrop_path,
+      {this.backdrop_path = "",
       required this.genre_ids,
       required this.id,
       required this.original_language,
@@ -44,10 +44,10 @@ class Movie extends Equatable {
           overview = value;
           break;
         case "popularity":
-          popularity = value;
+          popularity = value ?? 0.0;
           break;
         case "poster_path":
-          poster_path = value;
+          poster_path = value ?? "";
           break;
         case "release_date":
           release_date = DateTime.parse(value);
@@ -62,10 +62,10 @@ class Movie extends Equatable {
           vote_count = value;
           break;
         case "backdrop_path":
-          backdrop_path = value;
+          backdrop_path = value ?? "";
           break;
         case "genre_ids":
-          genre_ids = new List<int>.from(value);
+          genre_ids = List<int>.from(value);
           break;
         default:
       }

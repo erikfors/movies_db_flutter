@@ -17,6 +17,10 @@ class MoviesList {
     return _moviesList[index];
   }
 
+  List<Movie> get getMovieList{
+    return _moviesList;
+  }
+
   static List<Movie> jsonToMovieList(Map<String, dynamic> response) {
     List<dynamic> results = response["results"];
 
@@ -25,9 +29,15 @@ class MoviesList {
     for (var element in results) {
       Map<String, dynamic> currentElement = element;
       var movie = Movie.fromMap(currentElement);
+      print(movie);
       moviesListResult.add(movie);
     }
 
     return moviesListResult;
+  }
+
+  static List<Movie> addMovies(List<Movie> currentMovies, List<Movie> newMovies){
+    newMovies.addAll(currentMovies);
+    return newMovies.reversed.toList();
   }
 }

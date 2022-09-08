@@ -14,7 +14,7 @@ class MoviesListScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Movies')),
       body: BlocProvider(
         create: (_) => MoviesProviderBloc()..add(MovieLoading()),
-        child: MoviesListWidget(),
+        child: const MoviesListWidget(),
       ),
     );
   }
