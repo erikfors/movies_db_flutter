@@ -41,6 +41,7 @@ dependencies:
   equatable: ^2.0.5
   stream_transform: ^2.0.0
   bloc_event_transformers: ^1.0.1
+  beamer: ^1.5.3
 
 dev_dependencies:
   flutter_test:
