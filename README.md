@@ -10,7 +10,7 @@
 
 #### BONUS
 
-- [ ] Implement a shared element transition when user clicks into the details of a movie.
+- [x] Implement a shared element transition when user clicks into the details of a movie.
 - [ ] Trailers for popular movies are played automatically when the movie is selected.
   - [ ] When clicking on a popular movie (i.e. a movie voted for more than 5 stars) the video should be played immediately.
   - [ ] Less popular videos rely on the detailed page should show an image preview that can initiate playing a YouTube video.
@@ -42,3 +42,4 @@
 * [Beamer](https://pub.dev/packages/beamer) - Beamer uses the power of Router and implements all the underlying logic for you, letting you explore arbitrarily complex navigation scenarios with ease.
 * [intl](https://pub.dev/packages/intl) - Provides internationalization and localization facilities, including message translation, plurals and genders, date/number formatting and parsing, and bidirectional text.
 * [flutter_rating_bar](https://pub.dev/packages/flutter_rating_bar) - A simple yet fully customizable rating bar for flutter which also include a rating bar indicator, supporting any fraction of rating.
+* [cached_network_image](https://pub.dev/packages/cached_network_image) - A flutter library to show images from the internet and keep them in the cache directory.
