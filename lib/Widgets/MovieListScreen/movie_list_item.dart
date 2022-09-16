@@ -20,61 +20,56 @@ class MovieListItem extends StatelessWidget {
             "/movie",
             data: movie,
           ),
-          child: Card(
-            color: const Color.fromARGB(255, 41, 40, 40),
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(16))),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Stack(
-                  alignment: Alignment.bottomLeft,
-                  fit: StackFit.passthrough,
-                  clipBehavior: Clip.none,
-                  children: [
-                    ClipRRect(
-                      borderRadius: const BorderRadius.all(Radius.circular(16)),
-                      child: CachedNetworkImage(
-                        imageUrl:
-                            "https://image.tmdb.org/t/p/w342${movie.poster_path}",
-                        fit: BoxFit.fill,
-                        progressIndicatorBuilder:
-                            (context, url, downloadProgress) =>
-                                CircularProgressIndicator(
-                                    value: downloadProgress.progress),
-                        width: double.infinity,
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
-                      ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Stack(
+                fit: StackFit.passthrough,
+                clipBehavior: Clip.none,
+                children: [
+                  ClipRRect(
+                    borderRadius: const BorderRadius.all(Radius.circular(16)),
+                    child: CachedNetworkImage(
+                      imageUrl:
+                          "https://image.tmdb.org/t/p/w342${movie.poster_path}",
+                      fit: BoxFit.fill,
+                      progressIndicatorBuilder:
+                          (context, url, downloadProgress) =>
+                              CircularProgressIndicator(
+                                  value: downloadProgress.progress),
+                      width: double.infinity,
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
                     ),
-                    Positioned(
-                      left: 20,
-                      bottom: -20,
-                      child: RatingCircle(movie.vote_average),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Hero(
-                    createRectTween: (begin, end) =>
-                        MaterialRectCenterArcTween(begin: begin, end: end),
-                    tag: movie.title,
-                    child: Wrap(children: [
-                      Text(
-                        movie.title,
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headline1,
-                      ),
-                    ]),
                   ),
-                ),
-              ],
-            ),
+                  Positioned(
+                    left: 20,
+                    bottom: -20,
+                    child: RatingCircle(movie.vote_average),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 26,
+              ),
+              Hero(
+                createRectTween: (begin, end) =>
+                    MaterialRectCenterArcTween(begin: begin, end: end),
+                tag: movie.title,
+                child: Wrap(children: [
+                  Text(
+                    movie.title,
+                    style: Theme.of(context).textTheme.headline1,
+                  ),
+              
+                ]),
+              ),
+              const SizedBox(
+                height: 4,
+              ),
+              Text(movie.getDate)
+            ],
           ),
         ),
       ),

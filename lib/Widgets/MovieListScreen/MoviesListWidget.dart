@@ -38,7 +38,7 @@ class _MoviesListState extends State<MoviesListWidget> {
             }
             return GridView.count(
               crossAxisCount: 2,
-              childAspectRatio: 0.50,
+              childAspectRatio: 0.49,
               controller: _scrollController,
               children: List.generate(
                 state.hasReachedMax
