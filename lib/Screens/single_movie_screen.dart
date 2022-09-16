@@ -4,6 +4,8 @@ import 'package:movie_app/Models/movie.dart';
 import 'package:movie_app/Widgets/MovieWidgets/rating_circle.dart';
 import 'package:movie_app/Widgets/Utils/screen_size.dart';
 
+import '../Widgets/MovieWidgets/rating_bar.dart';
+
 class MovieScreen extends StatelessWidget {
   final Movie movie;
   const MovieScreen(this.movie, {super.key});
@@ -17,13 +19,16 @@ class MovieScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                movie.title,
-                maxLines: 2,
-                style: Theme.of(context).textTheme.headline2,
+              Hero(
+                tag: movie.title,
+                child: Text(
+                  movie.title,
+                  maxLines: 2,
+                  style: Theme.of(context).textTheme.headline2,
+                ),
               ),
               const SizedBox(
-                height: 4,
+                height: 6,
               ),
               SizedBox(
                 width: ScreenSize.getWidth(context),
@@ -32,7 +37,7 @@ class MovieScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
-                      height: 40,
+                      height: 45,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,7 +47,7 @@ class MovieScreen extends StatelessWidget {
                             style: Theme.of(context).textTheme.bodyText1,
                           ),
                           const SizedBox(
-                            height: 4,
+                            height: 6,
                           ),
                           Text(
                             "Released Date: ${movie.getDate}",
@@ -58,21 +63,7 @@ class MovieScreen extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              RatingBar.builder(
-                itemSize: 35,
-                maxRating: 10,
-                itemCount: 10,
-                allowHalfRating: true,
-                initialRating: movie.vote_average,
-                ignoreGestures: true,
-                glowColor: Colors.purple,
-                unratedColor: const Color.fromARGB(255, 78, 64, 82),
-                itemBuilder: ((ctx, _) => const Icon(
-                      Icons.star,
-                      color: Colors.purple,
-                    )),
-                onRatingUpdate: (_) {},
-              ),
+              MyRatingbar(voteAverage: movie.vote_average),
               const SizedBox(
                 height: 4,
               ),

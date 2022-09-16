@@ -34,23 +34,29 @@ class _MoviesListState extends State<MoviesListWidget> {
             );
           case MovieStatus.success:
             if (state.moviesList.size() <= 0) {
-              return const Center(child: Text('no posts'));
+              return const Center(child: Text('no movies'));
             }
-            return ListView.builder(
-              itemBuilder: (BuildContext context, int index) {
-                return index >= state.moviesList.size()
-                    ? const BottomLoader()
-                    : MovieListItem(movie: state.moviesList.get(index));
-              },
-              itemCount: state.hasReachedMax
-                  ? state.moviesList.size()
-                  : state.moviesList.size() + 1,
+            return GridView.count(
+              crossAxisCount: 2,
+              childAspectRatio: 0.50,
               controller: _scrollController,
+              children: List.generate(
+                state.hasReachedMax
+                    ? state.moviesList.size()
+                    : state.moviesList.size() + 1,
+                (index) => index >= state.moviesList.size()
+                    ? const BottomLoader()
+                    : MovieListItem(
+                        movie: state.moviesList.get(
+                          index,
+                        ),
+                      ),
+              ),
             );
           case MovieStatus.initial:
             return const Center(
-              child: CircularProgressIndicator(),
               heightFactor: double.infinity,
+              child: CircularProgressIndicator(),
             );
           default:
             return const Center(child: Text('Unknown State'));
@@ -68,7 +74,7 @@ class _MoviesListState extends State<MoviesListWidget> {
   }
 
   void _onScroll() {
-        if (_isBottom) context.read<MoviesProviderBloc>().add(MovieLoading());
+    if (_isBottom) context.read<MoviesProviderBloc>().add(MovieLoading());
   }
 
   bool get _isBottom {

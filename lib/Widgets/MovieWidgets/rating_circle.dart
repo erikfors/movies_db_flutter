@@ -16,6 +16,7 @@ class RatingCircle extends StatelessWidget {
       ),
       child: CircularPercentIndicator(
         animation: true,
+        lineWidth: 4,
         circularStrokeCap: CircularStrokeCap.butt,
         linearGradient: getLinearGardient(rating * 10),
         radius: 20,

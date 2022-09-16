@@ -6,7 +6,7 @@ class MyTheme {
     scaffoldBackgroundColor: Color.fromARGB(221, 39, 39, 39),
     textTheme: const TextTheme(
       headline1: TextStyle(
-          fontSize: 72.0, fontWeight: FontWeight.bold, color: Colors.white),
+          fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.white),
       headline2: TextStyle(
           fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
       headline6: TextStyle(
