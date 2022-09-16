@@ -53,7 +53,7 @@ class MovieListItem extends StatelessWidget {
                             Text(
                               movie.overview,
                               maxLines: 7,
-                              softWrap: false,
+                              softWrap: true,
                               overflow: TextOverflow.ellipsis,
                               style: Theme.of(context).textTheme.bodyText2,
                             ),

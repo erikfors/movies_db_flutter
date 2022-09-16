@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:intl/intl.dart';
 
 class Movie extends Equatable {
   late int id;
@@ -70,6 +71,81 @@ class Movie extends Equatable {
         default:
       }
     });
+  }
+
+  String get getDate{
+    final dateFormat = DateFormat("MMM dd, yyyy");
+    return dateFormat.format(release_date);
+  }
+
+  static String getGenres(List<int> genresIDs) {
+    String returnString = "";
+
+    for (int i = 0; i < genresIDs.length; i++) {
+      switch (genresIDs[i]) {
+        case 28:
+          returnString += "Action-";
+          break;
+        case 12:
+          returnString += "Adventure-";
+          break;
+        case 16:
+          returnString += "Animation-";
+          break;
+        case 80:
+          returnString += "Crime-";
+          break;
+        case 35:
+          returnString += "Comedy-";
+          break;
+        case 18:
+          returnString += "Drama-";
+          break;
+        case 10751:
+          returnString += "Family-";
+          break;
+        case 14:
+          returnString += "Fantasy-";
+          break;
+        case 36:
+          returnString += "History-";
+          break;
+        case 27:
+          returnString += "Horror-";
+          break;
+        case 10402:
+          returnString += "Music-";
+          break;
+        case 9648:
+          returnString += "Mystery-";
+          break;
+        case 10749:
+          returnString += "Romance-";
+          break;
+        case 878:
+          returnString += "Science Fiction-";
+          break;
+        case 10770:
+          returnString += "TV Movie-";
+          break;
+        case 99:
+          returnString += "Documentary-";
+          break;
+        case 53:
+          returnString += "Thriller-";
+          break;
+        case 10752:
+          returnString += "War-";
+          break;
+        case 37:
+          returnString += "Western-";
+          break;
+        default:
+          returnString += "Unkown-";
+      }
+    }
+
+    return returnString.substring(0, returnString.length - 1);
   }
 
   @override
