@@ -12,93 +12,100 @@ class MovieScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
-            YoutubePlayerWidget(movie.id),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Hero(
-                    tag: movie.title,
-                    child: Text(
-                      movie.title,
-                      maxLines: 2,
-                      style: Theme.of(context).textTheme.headline2,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 6,
-                  ),
-                  SizedBox(
-                    width: ScreenSize.getWidth(context),
-                    child: Row(
+            Flexible(child: YoutubePlayerWidget(movie.id)),
+            isPortrait
+                ? Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        Hero(
+                          tag: movie.title,
+                          child: Text(
+                            movie.title,
+                            maxLines: 2,
+                            style: Theme.of(context).textTheme.headline2,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 6,
+                        ),
                         SizedBox(
-                          height: 45,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
+                          width: ScreenSize.getWidth(context),
+                          child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                Movie.getGenres(movie.genre_ids),
-                                style: Theme.of(context).textTheme.bodyText1,
+                              SizedBox(
+                                height: 45,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      Movie.getGenres(movie.genre_ids),
+                                      style:
+                                          Theme.of(context).textTheme.bodyText1,
+                                    ),
+                                    const SizedBox(
+                                      height: 6,
+                                    ),
+                                    Text(
+                                      "Released Date: ${movie.getDate}",
+                                      style:
+                                          Theme.of(context).textTheme.bodyText2,
+                                    ),
+                                  ],
+                                ),
                               ),
-                              const SizedBox(
-                                height: 6,
-                              ),
-                              Text(
-                                "Released Date: ${movie.getDate}",
-                                style: Theme.of(context).textTheme.bodyText2,
-                              ),
+                              RatingCircle(movie.vote_average)
                             ],
                           ),
                         ),
-                        RatingCircle(movie.vote_average)
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        MyRatingbar(voteAverage: movie.vote_average),
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        SizedBox(
+                          width: double.infinity,
+                          child: Text(
+                            "${movie.vote_average} Rating / ${movie.vote_count} Reviews",
+                            textAlign: TextAlign.end,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        Text(
+                          "Overview",
+                          style: Theme.of(context).textTheme.headline6,
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Wrap(
+                          children: [
+                            Text(
+                              movie.overview,
+                              softWrap: true,
+                              style: Theme.of(context).textTheme.bodyText2,
+                            ),
+                          ],
+                        ),
                       ],
                     ),
+                  )
+                : const SizedBox(
+                    height: 0,
                   ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  MyRatingbar(voteAverage: movie.vote_average),
-                  const SizedBox(
-                    height: 4,
-                  ),
-                  SizedBox(
-                    width: double.infinity,
-                    child: Text(
-                      "${movie.vote_average} Rating / ${movie.vote_count} Reviews",
-                      textAlign: TextAlign.end,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Text(
-                    "Overview",
-                    style: Theme.of(context).textTheme.headline6,
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Wrap(
-                    children: [
-                      Text(
-                        movie.overview,
-                        softWrap: true,
-                        style: Theme.of(context).textTheme.bodyText2,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
           ],
         ),
       ),

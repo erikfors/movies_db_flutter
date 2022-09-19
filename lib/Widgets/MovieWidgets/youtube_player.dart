@@ -22,14 +22,6 @@ class YoutubePlayerWidget extends StatelessWidget {
 class VideoWidget extends StatelessWidget {
   const VideoWidget({super.key});
 
-  YoutubePlayerController _controller(String key) => YoutubePlayerController(
-        initialVideoId: key,
-        flags: const YoutubePlayerFlags(
-          autoPlay: true,
-          mute: false,
-        ),
-      );
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<YoutubeVideoBloc, YoutubeVideoState>(
@@ -38,10 +30,25 @@ class VideoWidget extends StatelessWidget {
           case YoutubeKeyStatus.initial:
             return const Center(child: CircularProgressIndicator());
           case YoutubeKeyStatus.success:
+            var controller = YoutubePlayerController(
+              initialVideoId: state.youtubeKey,
+              flags: const YoutubePlayerFlags(
+                autoPlay: true,
+                mute: false,
+              ),
+            );
             return YoutubePlayer(
-              controller: _controller(state.youtubeKey),
+              controller: controller,
               showVideoProgressIndicator: true,
-              progressColors: const ProgressBarColors(playedColor: Colors.red, backgroundColor: Colors.black12),
+              progressColors: const ProgressBarColors(
+                playedColor: Colors.red,
+                backgroundColor: Colors.black12,
+                handleColor: Colors.red,
+              ),
+              onEnded: (_) {
+                controller.reload();
+                controller.pause();
+              },
             );
           case YoutubeKeyStatus.failure:
             return const Center(child: Text('failed to fetch key'));
