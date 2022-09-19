@@ -14,6 +14,7 @@ class Movie extends Equatable {
   late int vote_count;
   late String backdrop_path;
   late List<int> genre_ids;
+  String trailerKey = "";
 
   Movie(
       {this.backdrop_path = "",

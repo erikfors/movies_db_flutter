@@ -6,3 +6,5 @@ abstract class YoutubeVideoEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class YoutubeVideoKeyFetched extends YoutubeVideoEvent{}
