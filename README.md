@@ -6,22 +6,17 @@
 
 - [x] User can view a list of movies (title, poster image, and overview) currently playing in theaters from the Movie Database API.
 - [x] Expose details of movie (ratings using RatingBar, popularity, and synopsis) in a separate activity.
-- [ ] Allow video posts to be played in full-screen using the YouTubePlayerView.
+- [x] Allow video posts to be played in full-screen using the YouTubePlayerView.
 
 #### BONUS
 
 - [x] Implement a shared element transition when user clicks into the details of a movie.
-- [ ] Trailers for popular movies are played automatically when the movie is selected.
-  - [ ] When clicking on a popular movie (i.e. a movie voted for more than 5 stars) the video should be played immediately.
-  - [ ] Less popular videos rely on the detailed page should show an image preview that can initiate playing a YouTube video.
-- [ ] Add a play icon overlay to popular movies to indicate that the movie can be played.
+- [x] When clicking on a popular movie (i.e. a movie voted for more than 5 stars) the video should be played immediately.
 - [x] Use Bloc.
 - [x] Add a rounded corners for the images.
-- [ ] Views should be responsive for both landscape/portrait mode.
-   - [ ] In portrait mode, the poster image, title, and movie score is shown.
-   - [ ] (In landscape mode, the rotated alternate layout should use the backdrop image instead and show the title and movie overview to the right of it.
 - [ ] Display a nice default placeholder (facebook one)
 - [x] Improved the user interface by experimenting with styling and coloring.
+- [ ] Add movies reviews
 
 
 ### App Walkthough GIF
@@ -43,3 +38,4 @@
 * [intl](https://pub.dev/packages/intl) - Provides internationalization and localization facilities, including message translation, plurals and genders, date/number formatting and parsing, and bidirectional text.
 * [flutter_rating_bar](https://pub.dev/packages/flutter_rating_bar) - A simple yet fully customizable rating bar for flutter which also include a rating bar indicator, supporting any fraction of rating.
 * [cached_network_image](https://pub.dev/packages/cached_network_image) - A flutter library to show images from the internet and keep them in the cache directory.
+* [youtube_player_flutter](https://pub.dev/packages/youtube_player_flutter) - Flutter plugin for playing or streaming YouTube videos inline using the official iFrame Player API.
