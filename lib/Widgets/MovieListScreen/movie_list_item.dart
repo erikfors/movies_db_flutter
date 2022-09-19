@@ -53,17 +53,19 @@ class MovieListItem extends StatelessWidget {
               const SizedBox(
                 height: 26,
               ),
-              Hero(
-                createRectTween: (begin, end) =>
-                    MaterialRectCenterArcTween(begin: begin, end: end),
-                tag: movie.title,
-                child: Wrap(children: [
-                  Text(
-                    movie.title,
-                    style: Theme.of(context).textTheme.headline1,
-                  ),
-              
-                ]),
+              Flexible(
+                child: Hero(
+                  createRectTween: (begin, end) =>
+                      MaterialRectCenterArcTween(begin: begin, end: end),
+                  tag: movie.title,
+                  child: Wrap(children: [
+                    Text(
+                      movie.title,
+                      style: Theme.of(context).textTheme.headline1,
+                    ),
+                
+                  ]),
+                ),
               ),
               const SizedBox(
                 height: 4,
