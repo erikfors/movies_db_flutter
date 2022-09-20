@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:movie_app/Providers/MovieListProvider/bloc/movies_provider_bloc.dart';
 import 'package:movie_app/Widgets/MovieListScreen/movie_list_item.dart';
+import 'package:movie_app/Widgets/MovieListScreen/movie_list_loading_shimmer_page.dart';
 
 import '../Utils/bottom_loader.dart';
 
@@ -54,10 +56,7 @@ class _MoviesListState extends State<MoviesListWidget> {
               ),
             );
           case MovieStatus.initial:
-            return const Center(
-              heightFactor: double.infinity,
-              child: CircularProgressIndicator(),
-            );
+            return const Center(child: MovieListsLoadingPage());
           default:
             return const Center(child: Text('Unknown State'));
         }
