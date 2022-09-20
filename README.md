@@ -14,7 +14,7 @@
 - [x] When clicking on a popular movie (i.e. a movie voted for more than 5 stars) the video should be played immediately.
 - [x] Use Bloc.
 - [x] Add a rounded corners for the images.
-- [ ] Display a nice default placeholder (facebook one)
+- [x] Display a nice default placeholder 
 - [x] Improved the user interface by experimenting with styling and coloring.
 - [ ] Add movies reviews
 
@@ -39,3 +39,4 @@
 * [flutter_rating_bar](https://pub.dev/packages/flutter_rating_bar) - A simple yet fully customizable rating bar for flutter which also include a rating bar indicator, supporting any fraction of rating.
 * [cached_network_image](https://pub.dev/packages/cached_network_image) - A flutter library to show images from the internet and keep them in the cache directory.
 * [youtube_player_flutter](https://pub.dev/packages/youtube_player_flutter) - Flutter plugin for playing or streaming YouTube videos inline using the official iFrame Player API.
+* [shimmer](https://pub.dev/packages/shimmer) - A package provides an easy way to add shimmer effect in Flutter project
