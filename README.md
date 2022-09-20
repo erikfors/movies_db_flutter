@@ -16,7 +16,7 @@
 - [x] Add a rounded corners for the images.
 - [x] Display a nice default placeholder 
 - [x] Improved the user interface by experimenting with styling and coloring.
-- [ ] Add movies reviews
+- [x] Add movies reviews
 
 
 ### App Walkthough GIF
