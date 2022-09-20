@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:intl/intl.dart';
 import 'package:movie_app/Models/author.dart';
 
 class Review extends Equatable {
@@ -26,6 +27,11 @@ class Review extends Equatable {
         default:
       }
     });
+  }
+
+  String get getDate{
+    final dateFormat = DateFormat("MMMM dd, yyyy");
+    return dateFormat.format(createdAt); 
   }
 
   @override
