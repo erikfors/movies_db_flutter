@@ -10,5 +10,6 @@ void main() {
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   Bloc.observer = SimpleBlocObserver();
+
   runApp(App());
 }

@@ -3,8 +3,6 @@ import 'package:intl/intl.dart';
 
 class Movie extends Equatable {
   late int id;
-  late String original_language;
-  late String original_title;
   late String overview;
   late double popularity;
   late String poster_path;
@@ -12,15 +10,11 @@ class Movie extends Equatable {
   late String title;
   late double vote_average;
   late int vote_count;
-  late String backdrop_path;
   late List<int> genre_ids;
 
   Movie(
-      {this.backdrop_path = "",
-      required this.genre_ids,
+      {required this.genre_ids,
       required this.id,
-      required this.original_language,
-      required this.original_title,
       required this.overview,
       required this.popularity,
       required this.poster_path,
@@ -34,12 +28,6 @@ class Movie extends Equatable {
       switch (key) {
         case "id":
           id = value;
-          break;
-        case "original_language":
-          original_language = value;
-          break;
-        case "original_title":
-          original_title = value;
           break;
         case "overview":
           overview = value;
@@ -62,9 +50,6 @@ class Movie extends Equatable {
         case "vote_count":
           vote_count = value;
           break;
-        case "backdrop_path":
-          backdrop_path = value ?? "";
-          break;
         case "genre_ids":
           genre_ids = List<int>.from(value);
           break;
@@ -73,7 +58,7 @@ class Movie extends Equatable {
     });
   }
 
-  String get getDate{
+  String get getDate {
     final dateFormat = DateFormat("MMM dd, yyyy");
     return dateFormat.format(release_date);
   }
@@ -158,8 +143,6 @@ class Movie extends Equatable {
   @override
   List<Object> get props => [
         id,
-        original_language,
-        original_title,
         overview,
         popularity,
         poster_path,
@@ -167,7 +150,6 @@ class Movie extends Equatable {
         title,
         vote_average,
         vote_count,
-        backdrop_path,
         genre_ids,
       ];
 }
