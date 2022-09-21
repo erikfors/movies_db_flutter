@@ -40,3 +40,4 @@
 * [cached_network_image](https://pub.dev/packages/cached_network_image) - A flutter library to show images from the internet and keep them in the cache directory.
 * [youtube_player_flutter](https://pub.dev/packages/youtube_player_flutter) - Flutter plugin for playing or streaming YouTube videos inline using the official iFrame Player API.
 * [shimmer](https://pub.dev/packages/shimmer) - A package provides an easy way to add shimmer effect in Flutter project
+* [percent_indicator ](https://pub.dev/packages/percent_indicator) - Circular and Linear percent indicators
