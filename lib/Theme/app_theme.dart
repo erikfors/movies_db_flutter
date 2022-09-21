@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class MyTheme {
   var theme = ThemeData(
     primarySwatch: Colors.purple,
-    scaffoldBackgroundColor: Color.fromARGB(221, 39, 39, 39),
+    scaffoldBackgroundColor: const Color.fromARGB(221, 39, 39, 39),
     textTheme: const TextTheme(
       headline1: TextStyle(
           fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.white),

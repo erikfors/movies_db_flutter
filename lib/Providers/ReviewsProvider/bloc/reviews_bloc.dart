@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:movie_app/Logic/Requests/movie_reviews_request.dart';
 import 'package:movie_app/Models/review.dart';
@@ -9,7 +9,7 @@ part 'reviews_event.dart';
 part 'reviews_state.dart';
 
 class ReviewsBloc extends Bloc<ReviewsEvent, ReviewsState> {
-  final movieID;
+  int movieID ;
 
   ReviewsBloc(this.movieID) : super(ReviewsInitial()) {
     on<ReviewsFetched>(_onReviewsFetched);

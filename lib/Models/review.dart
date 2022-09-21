@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:intl/intl.dart';
 import 'package:movie_app/Models/author.dart';
 
+// ignore: must_be_immutable
 class Review extends Equatable {
   late Author author;
   late String content;

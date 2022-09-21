@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc_event_transformers/bloc_event_transformers.dart';
 import 'package:equatable/equatable.dart';
 import 'package:movie_app/Logic/Requests/upcoming_movies_requests.dart';
@@ -47,7 +47,7 @@ class MoviesProviderBloc
           hasReachedMax: false,
           page: state.page + 1));
     } catch (e) {
-      print(e.toString());
+      //print(e.toString());
       emit(state.copyWith(status: MovieStatus.failure));
     }
   }

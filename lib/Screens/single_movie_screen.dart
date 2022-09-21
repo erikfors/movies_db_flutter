@@ -53,7 +53,7 @@ class MovieScreen extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        Movie.getGenres(movie.genre_ids),
+                                        Movie.getGenres(movie.genreIds),
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodyText1,
@@ -70,21 +70,21 @@ class MovieScreen extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                RatingCircle(movie.vote_average)
+                                RatingCircle(movie.voteAverage)
                               ],
                             ),
                           ),
                           const SizedBox(
                             height: 16,
                           ),
-                          MyRatingbar(voteAverage: movie.vote_average),
+                          MyRatingbar(voteAverage: movie.voteAverage),
                           const SizedBox(
                             height: 4,
                           ),
                           SizedBox(
                             width: double.infinity,
                             child: Text(
-                              "${movie.vote_average} Rating / ${movie.vote_count} Reviews",
+                              "${movie.voteAverage} Rating / ${movie.voteCount} Reviews",
                               textAlign: TextAlign.end,
                             ),
                           ),

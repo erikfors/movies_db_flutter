@@ -1,27 +1,28 @@
 import 'package:equatable/equatable.dart';
 import 'package:intl/intl.dart';
 
+//ignore: must_be_immutable
 class Movie extends Equatable {
   late int id;
   late String overview;
   late double popularity;
-  late String poster_path;
-  late DateTime release_date;
+  late String posterPath;
+  late DateTime releaseDate;
   late String title;
-  late double vote_average;
-  late int vote_count;
-  late List<int> genre_ids;
+  late double voteAverage;
+  late int voteCount;
+  late List<int> genreIds;
 
   Movie(
-      {required this.genre_ids,
+      {required this.genreIds,
       required this.id,
       required this.overview,
       required this.popularity,
-      required this.poster_path,
-      required this.release_date,
+      required this.posterPath,
+      required this.releaseDate,
       required this.title,
-      required this.vote_average,
-      required this.vote_count});
+      required this.voteAverage,
+      required this.voteCount});
 
   Movie.fromMap(Map<String, dynamic> map) {
     map.forEach((key, value) {
@@ -36,22 +37,22 @@ class Movie extends Equatable {
           popularity = value ?? 0.0;
           break;
         case "poster_path":
-          poster_path = value ?? "";
+          posterPath = value ?? "";
           break;
         case "release_date":
-          release_date = DateTime.parse(value);
+          releaseDate = DateTime.parse(value);
           break;
         case "title":
           title = value;
           break;
         case "vote_average":
-          vote_average = value + 0.0;
+          voteAverage = value + 0.0;
           break;
         case "vote_count":
-          vote_count = value;
+          voteCount = value;
           break;
         case "genre_ids":
-          genre_ids = List<int>.from(value);
+          genreIds = List<int>.from(value);
           break;
         default:
       }
@@ -60,7 +61,7 @@ class Movie extends Equatable {
 
   String get getDate {
     final dateFormat = DateFormat("MMM dd, yyyy");
-    return dateFormat.format(release_date);
+    return dateFormat.format(releaseDate);
   }
 
   static String getGenres(List<int> genresIDs) {
@@ -145,11 +146,11 @@ class Movie extends Equatable {
         id,
         overview,
         popularity,
-        poster_path,
-        release_date,
+        posterPath,
+        releaseDate,
         title,
-        vote_average,
-        vote_count,
-        genre_ids,
+        voteAverage,
+        voteCount,
+        genreIds,
       ];
 }

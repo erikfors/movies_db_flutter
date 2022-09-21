@@ -39,7 +39,6 @@ dependencies:
   flutter_bloc: ^8.1.1
   dio: ^4.0.6
   equatable: ^2.0.5
-  stream_transform: ^2.0.0
   bloc_event_transformers: ^1.0.1
   beamer: ^1.5.3
   percent_indicator: ^4.2.2

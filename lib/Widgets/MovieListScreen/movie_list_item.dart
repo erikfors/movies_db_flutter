@@ -32,7 +32,7 @@ class MovieListItem extends StatelessWidget {
                     borderRadius: const BorderRadius.all(Radius.circular(16)),
                     child: CachedNetworkImage(
                       imageUrl:
-                          "https://image.tmdb.org/t/p/w342${movie.poster_path}",
+                          "https://image.tmdb.org/t/p/w342${movie.posterPath}",
                       fit: BoxFit.fill,
                       progressIndicatorBuilder:
                           (context, url, downloadProgress) =>
@@ -46,7 +46,7 @@ class MovieListItem extends StatelessWidget {
                   Positioned(
                     left: 20,
                     bottom: -20,
-                    child: RatingCircle(movie.vote_average),
+                    child: RatingCircle(movie.voteAverage),
                   ),
                 ],
               ),
